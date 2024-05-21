@@ -15,6 +15,8 @@ export class DatabindingComponent {
   flag: boolean = false;
   num1: number = 10;
   num2: number = 20;
+  selectedState: string = 'AP';
+  msg: string = '';
 
   f1() {
     alert('I am f1...')

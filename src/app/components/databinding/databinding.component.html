@@ -1,3 +1,4 @@
+<h1>I am data binding</h1>
 <p>databinding works!</p>
 
 <h4>My Name is- {{name}}</h4>
@@ -36,3 +37,22 @@
 <input type="number" #num3 id="box1" />
 <input type="number" ref-num4 id="box2" />
 <button class="btn btn-primary" (click)="addition(num3.value,num4.value)">Add-2</button>
+===========================================================================
+
+<h1 [hidden]="flag">Hello Everyone, Good Morning</h1>
+<button (click)="flag = !flag"> {{flag ? 'SHOW' : 'HIDE'}} </button>
+<hr />
+<textarea [(ngModel)]="msg" maxlength="100" cols="30" rows="4"></textarea>
+<h1>Remaining Characters: {{100 - msg.length}}</h1>
+<hr />
+
+<select [(ngModel)]="selectedState">
+    <option>AP</option>
+    <option>UP</option>
+    <option>Goa</option>
+    <option>Odisha</option>
+</select>
+<h1>Selected state : {{selectedState}}</h1>
+<hr />
+
+<button>Dark/Light Mode</button>
