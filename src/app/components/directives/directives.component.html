@@ -1,5 +1,17 @@
 <h2 class="text-center">This is Directive Component</h2>
 
+<h1 *ngIf="flag">
+    Hellooooooooooooooooo
+</h1>
+
+@if(flag){
+<h1>truuuuuuuuuuuuu</h1>
+}@else{
+<h1>Falseeeeeeeeeeeeeeeeeeeee</h1>
+}
+
+<!-- <div @if="5==5">Helloooooooo</div> -->
+
 <h3 *ngIf="flag">This is a paragraph</h3>
 <h3 [hidden]="!flag">This is another paragraph</h3>
 
@@ -32,6 +44,17 @@
     <p *ngSwitchDefault>Not a valid number</p>
 </h1>
 
+@switch (n) {
+@case (1) { <h1>Monday</h1> }
+@case (2) { <h1>Tuesday</h1> }
+@case (3) { <h1>Wednesday</h1> }
+@case (4) { <h1>Thursday</h1> }
+@case (5) { <h1>Friday</h1> }
+@case (6) { <h1>Saturday</h1> }
+@case (7) { <h1>Sunday</h1> }
+@default { <h1>Not a Valid number</h1>> }
+}
+
 <ol>
     <li *ngFor="let car of cars">
         {{car}}
@@ -58,9 +81,9 @@
     <tbody>
         <tr *ngFor="let emp of employees;trackBy:trackByempId;let i=index;
                 let f=first;let l=last;let e = even;let o=odd">
-            <td>{{emp.eId}}</td>
-            <td>{{emp.name}}</td>
-            <td>{{emp.sal}}</td>
+            <td>{{emp?.eId}}</td>
+            <td>{{emp?.name}}</td>
+            <td>{{emp?.sal}}</td>
             <td>{{emp.gender}}</td>
             <td>{{i+1}}</td>
             <td>{{f}}</td>
@@ -71,3 +94,44 @@
     </tbody>
 </table>
 <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th *ngFor="let col of employeeColumns">
+                {{col}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees;track emp.eId){
+        <tr>
+            <td>{{emp?.eId}}</td>
+            <td>{{emp?.name}}</td>
+            <td>{{emp?.sal}}</td>
+            <td>{{emp?.gender}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<h3>
+    <span highlight id="myspan">Students using *ngFor:</span>
+    <div *ngFor="let student of students">
+        {{student}}
+    </div>
+</h3>
+
+<h3>
+    Students Using new syntax:
+    @for(student of students;track student){
+    <div>{{student}}</div>
+    }@empty{
+    <div>No Student available</div>
+    }
+</h3>
+
+<button class="btn btn-primary" (click)="openAlert()">click me</button>
+
+<input numberonly type="text" name="" id="">
+<input numberonly type="text" name="" id="">

@@ -1,11 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2'
+import { NumberonlyDirective } from '../../directives/numberonly.directive';
+import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'app-directives',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    NumberonlyDirective,
+    HighlightDirective
   ],
   templateUrl: './directives.component.html',
   styleUrl: './directives.component.css'
@@ -48,6 +53,12 @@ export class DirectivesComponent {
 
   getClasses() {
     return this.myClasses;
+  }
+
+  students: any = [];
+
+  openAlert() {
+    Swal.fire('The Internet?', 'That thing is still around?', 'success');
   }
 
 }
