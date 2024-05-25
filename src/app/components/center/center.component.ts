@@ -3,6 +3,7 @@ import { DatabindingComponent } from '../databinding/databinding.component';
 import { DirectivesComponent } from '../directives/directives.component';
 import { ProductsComponent } from '../products/products.component';
 import { MyModalComponent } from '../my-modal/my-modal.component';
+import { PipesComponent } from '../pipes/pipes.component';
 
 @Component({
   selector: 'app-center',
@@ -11,7 +12,8 @@ import { MyModalComponent } from '../my-modal/my-modal.component';
     DatabindingComponent,
     DirectivesComponent,
     ProductsComponent,
-    MyModalComponent
+    MyModalComponent,
+    PipesComponent
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css'
