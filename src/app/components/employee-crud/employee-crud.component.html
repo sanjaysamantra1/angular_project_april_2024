@@ -1,0 +1,70 @@
+<h1 class="text-center">Employee CRUD</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>eId</th>
+                        <th>Name</th>
+                        <th>Sal</th>
+                        <th>Gender</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (emp of employees; track emp.id;let i = $index) {
+                    <tr>
+                        <td>{{emp.id}}</td>
+                        <td>{{emp.name | genderprefix : emp.gender}}</td>
+                        <td>{{emp.sal}}</td>
+                        <td>{{emp.gender}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="viewEmployee(emp)">View</button>
+                            <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" (click)="selectedEmployee=emp">
+                                View-2
+                            </button>
+                            <button class="btn btn-danger mx-1" (click)="deleteEmployee(i)">Delete</button>
+                            <button class="btn btn-secondary" (click)="editEmployee(emp,i)">Edit</button>
+                        </td>
+                    </tr>
+                    } @empty {
+                    Empty list of Employees
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4 border p-2">
+            <div>Emp id: <input [readonly]="!isAdd" type="text" [(ngModel)]="selectedEmployee.id" /></div><br />
+            <div>Emp Name: <input type="text" [(ngModel)]="selectedEmployee.name" /></div><br />
+            <div>Emp Salary: <input type="text" [(ngModel)]="selectedEmployee.sal" /></div><br />
+            <div>Emp Gender: <input type="text" [(ngModel)]="selectedEmployee.gender" /></div><br />
+            <button *ngIf="isAdd" (click)="addEmployee()">Add Employee</button>
+            <button class="btn btn-primary mx-1" *ngIf="!isAdd" (click)="saveEditedEmployee()">Save Changes</button>
+            <button class="btn btn-secondary" *ngIf="!isAdd" (click)="cancelChanges()">Cancel Changes</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>Emp id: {{this.selectedEmployee?.id}}</div>
+                <div>Emp Name: {{this.selectedEmployee?.name}}</div>
+                <div>Emp Salary: {{this.selectedEmployee?.sal}}</div>
+                <div>Emp Gender: {{this.selectedEmployee?.gender}}</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

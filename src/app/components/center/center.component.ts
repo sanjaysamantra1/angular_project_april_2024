@@ -4,6 +4,7 @@ import { DirectivesComponent } from '../directives/directives.component';
 import { ProductsComponent } from '../products/products.component';
 import { MyModalComponent } from '../my-modal/my-modal.component';
 import { PipesComponent } from '../pipes/pipes.component';
+import { EmployeeCrudComponent } from '../employee-crud/employee-crud.component';
 
 @Component({
   selector: 'app-center',
@@ -13,7 +14,8 @@ import { PipesComponent } from '../pipes/pipes.component';
     DirectivesComponent,
     ProductsComponent,
     MyModalComponent,
-    PipesComponent
+    PipesComponent,
+    EmployeeCrudComponent
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css'

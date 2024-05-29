@@ -2,6 +2,7 @@
     <h3 class="text-center">This is pipes Component</h3>
 
     <h4>{{name}}</h4>
+    <input [(ngModel)]="name" />
     <h4>{{name | uppercase}}</h4>
     <h4>{{name | lowercase}}</h4>
     <h4>{{name | titlecase}}</h4>
@@ -60,9 +61,24 @@
 
     <textarea [(ngModel)]="msg" rows="3" cols="30" maxlength="100">
     </textarea>
-    <h4>Remaining: {{ msg | remaining  }}</h4>
+    <h4>Remaining: {{ msg | remaining }}</h4>
 
     <textarea [(ngModel)]="msg" rows="3" cols="30" maxlength="200">
     </textarea>
     <h4>Remaining: {{ msg | remaining : 200 }}</h4>
+
+    <hr />
+
+    @for(ele of arr;track $index){
+    <span>{{ele}} </span>
+    }
+    <hr />
+
+    @for(ele of arr2 | mySort;track $index){
+    <span>{{ele}} </span>
+    }
+
+    <input #newEle type="number" />
+    <button (click)="arr2.push(+newEle.value)">Add</button>
+    <button (click)="f1()">f1</button>
 </div>
