@@ -1,0 +1,18 @@
+<h1 class="text-center">Component Communication</h1>
+
+<div class="container">
+    <div class="row parent border p-2">
+        <h4 class="text-center">This is Parent Component</h4>
+        <div>My Own data a is {{a}}</div>
+        <div>My Child data b is {{child2Ref.b}}</div>
+        <div>My Child data b is {{bParent}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 border p-2">
+            <app-child1 [title]="title" [bParent]="bParent" [aChild1]="a" [child2Ref]="child2Ref"></app-child1>
+        </div>
+        <div class="col-sm-6 border p-2">
+            <app-child2 [a]="a" #child2Ref (bEvent)="receiveBData($event)"></app-child2>
+        </div>
+    </div>
+</div>

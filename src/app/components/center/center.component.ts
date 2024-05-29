@@ -5,6 +5,7 @@ import { ProductsComponent } from '../products/products.component';
 import { MyModalComponent } from '../my-modal/my-modal.component';
 import { PipesComponent } from '../pipes/pipes.component';
 import { EmployeeCrudComponent } from '../employee-crud/employee-crud.component';
+import { ParentComponent } from '../parent/parent.component';
 
 @Component({
   selector: 'app-center',
@@ -15,11 +16,13 @@ import { EmployeeCrudComponent } from '../employee-crud/employee-crud.component'
     ProductsComponent,
     MyModalComponent,
     PipesComponent,
-    EmployeeCrudComponent
+    EmployeeCrudComponent,
+    ParentComponent
   ],
   templateUrl: './center.component.html',
-  styleUrl: './center.component.css'
+  styleUrl: './center.component.css',
+  inputs:['title']
 })
 export class CenterComponent {
-
+  title:any;
 }
