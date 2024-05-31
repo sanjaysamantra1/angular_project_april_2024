@@ -1,5 +1,9 @@
 <p>child2 works!</p>
 <div>a data from my parent is {{a}}</div>
 <div>My own data b is {{b}}</div>
+@for(car of cars;track $index){
+    <div>{{car}}</div>
+}
 
 <button class="btn btn-primary" (click)="sendDataToParent()">Send Data</button>
+<button class="btn btn-primary" (click)="refresh()">Refresh My data</button>

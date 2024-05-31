@@ -6,6 +6,8 @@ import { MyModalComponent } from '../my-modal/my-modal.component';
 import { PipesComponent } from '../pipes/pipes.component';
 import { EmployeeCrudComponent } from '../employee-crud/employee-crud.component';
 import { ParentComponent } from '../parent/parent.component';
+import { UserDetailsComponent } from '../user-details/user-details.component';
+import { TrafficLightComponent } from '../../component/traffic-light/traffic-light.component';
 
 @Component({
   selector: 'app-center',
@@ -17,7 +19,9 @@ import { ParentComponent } from '../parent/parent.component';
     MyModalComponent,
     PipesComponent,
     EmployeeCrudComponent,
-    ParentComponent
+    ParentComponent,
+    UserDetailsComponent,
+    TrafficLightComponent
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',

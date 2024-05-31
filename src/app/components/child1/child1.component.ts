@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-child1',
@@ -6,11 +6,23 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './child1.component.html',
   styleUrl: './child1.component.css',
-  inputs:['aChild1','child2Ref','bParent','title']
+  inputs: ['aChild1', 'child2Ref', 'bParent', 'title']
 })
 export class Child1Component {
-  aChild1:any;
-  child2Ref:any;
-  bParent:any;
-  title:any;
-}
+  aChild1: any;
+  child2Ref: any;
+  bParent: any;
+  title: any;
+
+  constructor() {
+    console.log('Child-1 Constructor')
+  }
+  ngOnChanges(myChanges: any) {
+    console.log('Child-1 ngOnChanges');
+    console.log(myChanges)
+  }
+
+  ngOnInit() {
+    console.log('Child-1 ngOnInit')
+  }
+} 
