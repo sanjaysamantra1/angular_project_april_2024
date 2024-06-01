@@ -7,7 +7,7 @@
         <div><input type="number" [(ngModel)]="a"></div>
         <div><input type="text" [(ngModel)]="name">Name is : {{name}}</div>
         <div><input type="text" [(ngModel)]="title">Name is : {{title}}</div>
-        <div>My Child data b is {{child2Ref.b}}</div>
+        <div id="div1" #myDiv1>My Child data b is {{child2Ref.b}}</div>
         <div>My Child data b is {{bParent}}</div>
         @for(car of cars;track $index){
          <span>{{car}}</span>
@@ -16,6 +16,8 @@
     </div>
     <div class="row">
         <div class="col-sm-6 border p-2">
+            <app-child1 [title]="title" [bParent]="bParent" [aChild1]="a" [child2Ref]="child2Ref"></app-child1>
+            <app-child1 [title]="title" [bParent]="bParent" [aChild1]="a" [child2Ref]="child2Ref"></app-child1>
             <app-child1 [title]="title" [bParent]="bParent" [aChild1]="a" [child2Ref]="child2Ref"></app-child1>
         </div>
         <div class="col-sm-6 border p-2">

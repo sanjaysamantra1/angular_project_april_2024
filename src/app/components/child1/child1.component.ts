@@ -1,9 +1,10 @@
 import { Component, SimpleChange } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-child1',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './child1.component.html',
   styleUrl: './child1.component.css',
   inputs: ['aChild1', 'child2Ref', 'bParent', 'title']
@@ -13,6 +14,7 @@ export class Child1Component {
   child2Ref: any;
   bParent: any;
   title: any;
+  num1:number=555;
 
   constructor() {
     console.log('Child-1 Constructor')

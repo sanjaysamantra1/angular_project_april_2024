@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-child2',
@@ -8,16 +8,18 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
   styleUrl: './child2.component.css',
   inputs: ['cars'],
   outputs: ['bEvent'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Child2Component {
   @Input() a: any;
   cars: any;
 
+  @ViewChild('myInputBox') myInput: any;
+
   b = 200;
   c = 300;
-  constructor(private cdr:ChangeDetectorRef){
-
+  constructor(private cdr: ChangeDetectorRef) {
+    console.log(document.getElementById('para1'))
   }
 
   bEvent = new EventEmitter();
@@ -26,16 +28,40 @@ export class Child2Component {
     this.bEvent.emit(this.b);
   }
 
-  refresh(){
+  refresh() {
     this.cdr.markForCheck();
   }
 
-ngOnChanges(){
-console.log('onchanges')
-  this.cdr.markForCheck();
-}
+  ngOnChanges() {
+    console.log('child onchanges')
+    this.cdr.markForCheck();
+  }
 
-  ngDoCheck(){
-    console.log('docheck')
+  ngOnInit() {
+    console.log('Child ngOnInit')
+  }
+
+  ngDoCheck() {
+    console.log('child docheck')
+    // this.cdr.markForCheck();
+  }
+  ngAfterContentInit() {
+    console.log('child ngAfterContentInit')
+    console.log(document.getElementById('para1'))
+  }
+  ngAfterContentChecked() {
+    console.log('child ngAfterContentChecked')
+  }
+  ngAfterViewInit() {
+    console.log('child ngAfterViewInit');
+    console.log(document.getElementById('para1'))
+    this.myInput.nativeElement.focus();
+    this.myInput.nativeElement.style.backgroundColor = 'red';
+  }
+  ngAfterViewChecked() {
+    console.log('child ngAfterViewChecked')
+  }
+  printHello() {
+    console.log('helllooooo')
   }
 }

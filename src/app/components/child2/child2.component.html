@@ -1,4 +1,4 @@
-<p>child2 works!</p>
+<p id="para1">child2 works!</p>
 <div>a data from my parent is {{a}}</div>
 <div>My own data b is {{b}}</div>
 @for(car of cars;track $index){
@@ -7,3 +7,7 @@
 
 <button class="btn btn-primary" (click)="sendDataToParent()">Send Data</button>
 <button class="btn btn-primary" (click)="refresh()">Refresh My data</button>
+
+<button (click)="printHello()">print hello</button>
+<br/><br/>
+<input type="text" #myInputBox />

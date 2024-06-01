@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, OnInit, QueryList, ViewChild, ViewChildren, inject } from '@angular/core';
 import { Child1Component } from '../child1/child1.component';
 import { Child2Component } from '../child2/child2.component';
 import { FormsModule } from '@angular/forms';
@@ -25,11 +25,17 @@ export class ParentComponent {
   myhttp: any;
   cars = ['tata', 'honda'];
 
+  @ViewChild('child2Ref') child2Obj: any;
+  @ViewChild('myDiv1') myDiv1: any;
+  @ViewChild(Child1Component) child1Comps !: any;
+
+  parentNum1:any;
+
   receiveBData(data: any) {
     this.bParent = data;
   }
 
-  constructor() { // Dependency Injection
+  constructor(private cdr:ChangeDetectorRef) { // Dependency Injection
     // constructor(private myhttp : HttpClient) { // Dependency Injection
     console.log("Parent constructor");
     this.a = 100;
@@ -37,7 +43,7 @@ export class ParentComponent {
     this.myhttp = inject(HttpClient);
   }
   ngOnInit() {
-    console.log('Parent ngOnInit');
+    // console.log('Parent ngOnInit');
 
     this.myhttp.get('https://jsonplaceholder.typicode.com/users').subscribe((response: any) => {
       console.log(response)
@@ -49,15 +55,33 @@ export class ParentComponent {
   // ngDoCheck() {
   //   console.log('Parent ngDoCheck');
   // }
-  // ngAfterContentInit() {
-  //   console.log('Parent ngAfterContentInit');
-  // }
+  ngAfterContentInit() {
+    console.log('Parent ngAfterContentInit');
+    console.log(this.child2Obj);
+    console.log(this.myDiv1);
+    console.log(document.getElementById('div1'))
+  }
   // ngAfterContentChecked() {
   //   console.log('Parent ngAfterContentChecked')
   // }
-  // ngAfterViewInit() {
-  //   console.log('Parent ngAfterViewInit');
-  // }
+  ngAfterViewInit() {
+    console.log('Parent ngAfterViewInit');
+    console.log(this.child2Obj);
+    console.log(this.myDiv1);
+
+    console.log("hiiiiiiiiiii")
+    console.log(this.child1Comps?._results.forEach((ele:any)=>{
+      console.log(ele);
+    }))
+
+    this.child1Comps.changes.subscribe((someChange:any)=>{
+      console.log('Something changed in child')
+      console.log(someChange)
+    })
+
+    this.parentNum1 = this.child1Comps.num1;
+    this.cdr.detectChanges();
+  }
   // ngAfterViewChecked() {
   //   console.log('Parent ngAfterViewChecked');
   // }
