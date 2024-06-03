@@ -8,6 +8,9 @@ import { EmployeeCrudComponent } from '../employee-crud/employee-crud.component'
 import { ParentComponent } from '../parent/parent.component';
 import { UserDetailsComponent } from '../user-details/user-details.component';
 import { TrafficLightComponent } from '../../component/traffic-light/traffic-light.component';
+import { Math1Component } from '../math1/math1.component';
+import { Math2Component } from '../math2/math2.component';
+import { Math3Component } from '../math3/math3.component';
 
 @Component({
   selector: 'app-center',
@@ -21,7 +24,10 @@ import { TrafficLightComponent } from '../../component/traffic-light/traffic-lig
     EmployeeCrudComponent,
     ParentComponent,
     UserDetailsComponent,
-    TrafficLightComponent
+    TrafficLightComponent,
+    Math1Component,
+    Math2Component,
+    Math3Component
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
