@@ -11,6 +11,7 @@ import { TrafficLightComponent } from '../../component/traffic-light/traffic-lig
 import { Math1Component } from '../math1/math1.component';
 import { Math2Component } from '../math2/math2.component';
 import { Math3Component } from '../math3/math3.component';
+import { HttpDemo1Component } from '../http-demo1/http-demo1.component';
 
 @Component({
   selector: 'app-center',
@@ -27,12 +28,13 @@ import { Math3Component } from '../math3/math3.component';
     TrafficLightComponent,
     Math1Component,
     Math2Component,
-    Math3Component
+    Math3Component,
+    HttpDemo1Component
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
-  inputs:['title']
+  inputs: ['title']
 })
 export class CenterComponent {
-  title:any;
+  title: any;
 }

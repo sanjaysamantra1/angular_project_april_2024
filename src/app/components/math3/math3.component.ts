@@ -7,7 +7,7 @@ import { MathService } from '../../services/math.service';
   imports: [],
   templateUrl: './math3.component.html',
   styleUrl: './math3.component.css',
-  providers: [MathService]
+  providers: []
 })
 export class Math3Component {
   constructor(public mathService: MathService) {
