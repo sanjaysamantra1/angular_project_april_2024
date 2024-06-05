@@ -1,12 +1,13 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-http-demo1',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [],
   templateUrl: './http-demo1.component.html',
-  styleUrl: './http-demo1.component.css'
+  styleUrl: './http-demo1.component.css',
+  providers: []
 })
 export class HttpDemo1Component {
   constructor(private httpClient: HttpClient) {

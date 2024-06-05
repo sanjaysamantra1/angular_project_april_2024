@@ -12,6 +12,7 @@ import { Math1Component } from '../math1/math1.component';
 import { Math2Component } from '../math2/math2.component';
 import { Math3Component } from '../math3/math3.component';
 import { HttpDemo1Component } from '../http-demo1/http-demo1.component';
+import { UsersComponent } from '../users/users.component';
 
 @Component({
   selector: 'app-center',
@@ -29,7 +30,8 @@ import { HttpDemo1Component } from '../http-demo1/http-demo1.component';
     Math1Component,
     Math2Component,
     Math3Component,
-    HttpDemo1Component
+    HttpDemo1Component,
+    UsersComponent
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
