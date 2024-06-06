@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../../services/users.service';
+import { User, UserModel } from '../../models/user';
 
 @Component({
   selector: 'app-users',
@@ -9,27 +10,16 @@ import { UsersService } from '../../services/users.service';
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
+  users: User[] = [];
   constructor(private usersService: UsersService) {
 
   }
   ngOnInit() {
-
-
-    const userObs = this.usersService.getAllUsers();
-    console.log(userObs);
-    userObs.subscribe((res: any) => {
-      console.log(res);
-      console.log(res.status);
-      console.log(res.body);
-    }
-      , err => {
-        console.log('Error')
-      },
-      () => {
-        console.log('Completed')
-      }
-    );
-
-    console.log('24 line');
+    this.usersService.getAllUsers().subscribe((response: User[]) => {
+      this.users = response;
+      console.log(response);
+      // Array of Objects
+      // Array Of Employees
+    });
   }
 }
