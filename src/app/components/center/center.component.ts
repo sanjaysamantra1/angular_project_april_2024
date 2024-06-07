@@ -13,6 +13,7 @@ import { Math2Component } from '../math2/math2.component';
 import { Math3Component } from '../math3/math3.component';
 import { HttpDemo1Component } from '../http-demo1/http-demo1.component';
 import { UsersComponent } from '../users/users.component';
+import { ProductListComponent } from '../product-list/product-list.component';
 
 @Component({
   selector: 'app-center',
@@ -31,7 +32,8 @@ import { UsersComponent } from '../users/users.component';
     Math2Component,
     Math3Component,
     HttpDemo1Component,
-    UsersComponent
+    UsersComponent,
+    ProductListComponent
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
