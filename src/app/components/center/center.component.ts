@@ -14,6 +14,7 @@ import { Math3Component } from '../math3/math3.component';
 import { HttpDemo1Component } from '../http-demo1/http-demo1.component';
 import { UsersComponent } from '../users/users.component';
 import { ProductListComponent } from '../product-list/product-list.component';
+import { ObservableDemo1Component } from '../observable-demo1/observable-demo1.component';
 
 @Component({
   selector: 'app-center',
@@ -33,7 +34,8 @@ import { ProductListComponent } from '../product-list/product-list.component';
     Math3Component,
     HttpDemo1Component,
     UsersComponent,
-    ProductListComponent
+    ProductListComponent,
+    ObservableDemo1Component
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',

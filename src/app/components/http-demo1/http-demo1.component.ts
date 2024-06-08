@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-http-demo1',
@@ -10,6 +11,8 @@ import { Component } from '@angular/core';
   providers: []
 })
 export class HttpDemo1Component {
+  allSubscriptions: Subscription[] = [];
+
   constructor(private httpClient: HttpClient) {
   }
   ngOnInit() {
@@ -31,10 +34,17 @@ export class HttpDemo1Component {
   }
 
   fetchUsersAngular() {
-    this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe(
+    const subscription1 = this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe(
       (resp) => {
         console.log(resp)
       }
     )
+    this.allSubscriptions.push(subscription1);
+  }
+
+  ngOnDestroy() {
+    this.allSubscriptions.forEach(subscription => {
+      subscription.unsubscribe();
+    })
   }
 }
