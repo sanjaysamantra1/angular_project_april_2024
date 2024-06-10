@@ -15,6 +15,8 @@ import { HttpDemo1Component } from '../http-demo1/http-demo1.component';
 import { UsersComponent } from '../users/users.component';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { ObservableDemo1Component } from '../observable-demo1/observable-demo1.component';
+import { ObservableDemo2Component } from '../observable-demo2/observable-demo2.component';
+import { ObservableDemo3Component } from '../observable-demo3/observable-demo3.component';
 
 @Component({
   selector: 'app-center',
@@ -35,7 +37,9 @@ import { ObservableDemo1Component } from '../observable-demo1/observable-demo1.c
     HttpDemo1Component,
     UsersComponent,
     ProductListComponent,
-    ObservableDemo1Component
+    ObservableDemo1Component,
+    ObservableDemo2Component,
+    ObservableDemo3Component
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
