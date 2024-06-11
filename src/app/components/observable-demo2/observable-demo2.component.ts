@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { concatMap, forkJoin, from, map, mergeMap, of } from 'rxjs';
+import { concatMap, exhaustMap, forkJoin, from, fromEvent, map, mergeMap, of } from 'rxjs';
 
 @Component({
   selector: 'app-observable-demo2',
@@ -18,7 +18,8 @@ export class ObservableDemo2Component {
     // this.forkJoinDemo();
     // this.withoutMergemap();
     // this.withMergemap();
-    this.concatMapDemo();
+    // this.concatMapDemo();
+    this.exhaustMapDemo();
   }
 
   forkJoinDemo() {
@@ -63,5 +64,21 @@ export class ObservableDemo2Component {
 
   }
 
+
+  exhaustMapDemo() {
+    const clicks = fromEvent(document, 'click');
+
+    const result = clicks.pipe(
+      exhaustMap(() => this.httpClient.get('https://fakestoreapi.com/products'))
+    );
+    result.subscribe((data) => console.log(data));
+
+    /* clicks.subscribe(val => {
+      this.httpClient.get('https://fakestoreapi.com/products').subscribe(data=>{
+        console.log(data)
+      })
+    }) */
+
+  }
 
 }

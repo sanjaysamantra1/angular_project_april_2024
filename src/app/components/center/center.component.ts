@@ -17,6 +17,10 @@ import { ProductListComponent } from '../product-list/product-list.component';
 import { ObservableDemo1Component } from '../observable-demo1/observable-demo1.component';
 import { ObservableDemo2Component } from '../observable-demo2/observable-demo2.component';
 import { ObservableDemo3Component } from '../observable-demo3/observable-demo3.component';
+import { SubjectDemo1Component } from '../subject-demo1/subject-demo1.component';
+import { Message1Component } from '../message1/message1.component';
+import { Message2Component } from '../message2/message2.component';
+import { Message3Component } from '../message3/message3.component';
 
 @Component({
   selector: 'app-center',
@@ -39,7 +43,11 @@ import { ObservableDemo3Component } from '../observable-demo3/observable-demo3.c
     ProductListComponent,
     ObservableDemo1Component,
     ObservableDemo2Component,
-    ObservableDemo3Component
+    ObservableDemo3Component,
+    SubjectDemo1Component,
+    Message1Component,
+    Message2Component,
+    Message3Component
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
