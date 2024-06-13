@@ -3,14 +3,14 @@
 <table class="table table-bordered table-striped">
     <tbody>
         @for(todo of todos | async;track $index){
-            <tr>
-                <td>{{todo.id}}</td>
-                <td>{{todo.text}}</td>
-                <td>{{todo.isCompleted}}</td>
-                <td>
-                    <button class="btn btn-danger" (click)="deleteTodo(todo.id)">DEL</button>
-                </td>
-            </tr>
+        <tr>
+            <td>{{todo.id}}</td>
+            <td>{{todo.text}}</td>
+            <td>{{todo.isCompleted}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteTodo(todo.id)">DEL</button>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
