@@ -21,6 +21,8 @@ import { SubjectDemo1Component } from '../subject-demo1/subject-demo1.component'
 import { Message1Component } from '../message1/message1.component';
 import { Message2Component } from '../message2/message2.component';
 import { Message3Component } from '../message3/message3.component';
+import { TodoListComponent } from '../todo-list/todo-list.component';
+import { TodoAddComponent } from '../todo-add/todo-add.component';
 
 @Component({
   selector: 'app-center',
@@ -47,7 +49,9 @@ import { Message3Component } from '../message3/message3.component';
     SubjectDemo1Component,
     Message1Component,
     Message2Component,
-    Message3Component
+    Message3Component,
+    TodoListComponent,
+    TodoAddComponent
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
