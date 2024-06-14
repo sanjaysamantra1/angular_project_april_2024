@@ -24,6 +24,7 @@ import { Message3Component } from '../message3/message3.component';
 import { TodoListComponent } from '../todo-list/todo-list.component';
 import { TodoAddComponent } from '../todo-add/todo-add.component';
 import { FormDemo1Component } from '../form-demo1/form-demo1.component';
+import { TemplateForm1Component } from '../template-form1/template-form1.component';
 
 @Component({
   selector: 'app-center',
@@ -53,7 +54,8 @@ import { FormDemo1Component } from '../form-demo1/form-demo1.component';
     Message3Component,
     TodoListComponent,
     TodoAddComponent,
-    FormDemo1Component
+    FormDemo1Component,
+    TemplateForm1Component
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',

@@ -1,0 +1,42 @@
+<h1 class="text-center">Template Driven Form</h1>
+
+<form #myForm="ngForm" (submit)="submitMyForm(myForm)" (reset)="resetMyForm(myForm)">
+    <div>
+        First Name:
+        <input #fname="ngModel" name="firstName" [(ngModel)]="user.firstName" required minlength="5" />
+
+        <span class="text-danger" *ngIf="fname.hasError('required') && fname.dirty">FirstName is required</span>
+        <span class="text-danger" *ngIf="fname.hasError('minlength') && fname.dirty">FirstName should have minimum 5
+            characters</span>
+    </div>
+    <div>
+        Last Name: <input #lname="ngModel" name="lastName" [(ngModel)]="user.lastName" required minlength="5" />
+
+        <span class="text-danger" *ngIf="lname?.errors?.['required'] && lname.dirty">lastName is required</span>
+        <span class="text-danger" *ngIf="lname?.errors?.['minlength'] && lname.dirty">minimum 5 chars</span>
+    </div>
+    <div>
+        Email: <input #email="ngModel" name="email" [(ngModel)]="user.email" required email />
+    </div>
+    <fieldset ngModelGroup="address">
+        <div>
+            Street Name: <input #street="ngModel" name="street" [(ngModel)]="user.address.street" />
+        </div>
+        <div>
+            City: <input #city="ngModel" name="city" [(ngModel)]="user.address.city" />
+        </div>
+        <div>
+            PIN: <input #pin="ngModel" name="pin" [(ngModel)]="user.address.pin" />
+        </div>
+    </fieldset>
+
+    <button type="submit" [disabled]="myForm.invalid">Submit</button>
+    <button type="reset">reset</button>
+</form>
+
+<h3>{{myForm.value | json}}</h3>
+<h3>{{user | json}}</h3>
+
+<h3>{{fname.value}}</h3>
+<div>{{fname.errors | json}}</div>
+<div>{{fname.valid | json}}</div>
