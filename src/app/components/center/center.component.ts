@@ -27,6 +27,7 @@ import { FormDemo1Component } from '../form-demo1/form-demo1.component';
 import { TemplateForm1Component } from '../template-form1/template-form1.component';
 import { ReactiveForm1Component } from '../reactive-form1/reactive-form1.component';
 import { ReactiveForm2Component } from '../reactive-form2/reactive-form2.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-center',
@@ -59,7 +60,8 @@ import { ReactiveForm2Component } from '../reactive-form2/reactive-form2.compone
     FormDemo1Component,
     TemplateForm1Component,
     ReactiveForm1Component,
-    ReactiveForm2Component
+    ReactiveForm2Component,
+    RouterOutlet
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',
