@@ -25,6 +25,8 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
 import { TodoAddComponent } from '../todo-add/todo-add.component';
 import { FormDemo1Component } from '../form-demo1/form-demo1.component';
 import { TemplateForm1Component } from '../template-form1/template-form1.component';
+import { ReactiveForm1Component } from '../reactive-form1/reactive-form1.component';
+import { ReactiveForm2Component } from '../reactive-form2/reactive-form2.component';
 
 @Component({
   selector: 'app-center',
@@ -55,7 +57,9 @@ import { TemplateForm1Component } from '../template-form1/template-form1.compone
     TodoListComponent,
     TodoAddComponent,
     FormDemo1Component,
-    TemplateForm1Component
+    TemplateForm1Component,
+    ReactiveForm1Component,
+    ReactiveForm2Component
   ],
   templateUrl: './center.component.html',
   styleUrl: './center.component.css',

@@ -1,0 +1,43 @@
+<h1 class="text-center">Reactive form</h1>
+
+<form [formGroup]="registerForm">
+    <p>
+        First Name: <input formControlName="firstName" />
+        <span class="text-danger" *ngIf="registerForm.controls.firstName.hasError('required')">FirstName is
+            required</span>
+        <span class="text-danger" *ngIf="registerForm.controls.firstName.hasError('minlength')">Minimum 5 characters
+            required</span>
+    </p>
+    <p>
+        Last Name: <input formControlName="lastName" />
+    </p>
+    <p>
+        Email: <input formControlName="email" />
+        <span class="text-danger" *ngIf="registerForm.controls.email.hasError('required')">email is required</span>
+        <span class="text-danger" *ngIf="registerForm.controls.email.hasError('invalidMail')">Email Format is
+            wrong</span>
+        <span>{{registerForm?.controls?.email?.errors | json}}</span>
+    </p>
+    <p>
+        Age: <input formControlName="age" />
+        <span class="text-danger" *ngIf="registerForm.controls.age.hasError('required')">age is required</span>
+        <span class="text-danger" *ngIf="registerForm.controls.age.hasError('ageRange')">age Format is wrong</span>
+        <span>{{registerForm?.controls?.age?.errors | json}}</span>
+    </p>
+    <fieldset formGroupName="address">
+        <p>
+            Street: <input formControlName="street" />
+        </p>
+        <p>
+            city: <input formControlName="city" />
+        </p>
+        <p>
+            pin: <input formControlName="pin" />
+        </p>
+    </fieldset>
+
+    <button type="submit" class="mx-1" [disabled]="registerForm.invalid">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+
+<h4>{{registerForm.value | json}}</h4>
