@@ -9,6 +9,6 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) { }
 
   fetchProducts() {
-    return this.httpClient.get('https://fakestoreapi.co/products');
+    return this.httpClient.get('https://fakestoreapi.com/products');
   }
 }

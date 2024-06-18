@@ -1,40 +1,40 @@
+import { Location } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [HttpClientModule, FormsModule],
+  imports: [HttpClientModule],
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.css'
 })
 export class UserDetailsComponent {
-  userId: number = 1;
+  userId: number | undefined;
   user: any;
-  userDetailsSubcription: Subscription = new Subscription;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient,
+    private location: Location
+  ) {
   }
 
   ngOnInit() {
-    this.fetchUserDetails();
-  }
-  ngDoCheck() {
-    // this.fetchUserDetails();
-  }
+    this.activatedRoute.params.subscribe((myParams: any) => {
+      console.log(myParams);
+      this.userId = +myParams['id'];
 
-  fetchUserDetails() {
-    const url = `https://jsonplaceholder.typicode.com/users/${this.userId}`;
-    
-    this.userDetailsSubcription = this.http.get(url).subscribe((userResponse: any) => {
-      this.user = userResponse;
+      this.http.get(`https://jsonplaceholder.typicode.com/users/${this.userId}`).subscribe(response => {
+        this.user = response;
+      })
+
     });
   }
 
-  ngOnDestroy() {
-    this.userDetailsSubcription.unsubscribe();
+  goBack() {
+    // this.location.back();
+    this.location.historyGo(-2)
   }
-
 }
