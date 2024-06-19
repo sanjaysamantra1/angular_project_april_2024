@@ -29,4 +29,8 @@ export class UsersService {
       })
     )
   }
+
+  fetchUserDataById(id: any) {
+    return this.httpClient.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+  }
 }

@@ -22,14 +22,17 @@ export class UserDetailsComponent {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((myParams: any) => {
+    /* this.activatedRoute.params.subscribe((myParams: any) => {
       console.log(myParams);
       this.userId = +myParams['id'];
-
       this.http.get(`https://jsonplaceholder.typicode.com/users/${this.userId}`).subscribe(response => {
         this.user = response;
       })
 
+    }); */
+
+    this.activatedRoute.data.subscribe((data: any) => {
+      this.user = data.userInfo;
     });
   }
 
