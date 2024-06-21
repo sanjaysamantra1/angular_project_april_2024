@@ -1,4 +1,4 @@
-import { provideRouter } from '@angular/router';
+import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 
 import { routes } from './app.routes';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -21,6 +21,7 @@ export const appConfig: any = {
       loadingInterceptor,
       errorInterceptor,
       myresponseInterceptor
-    ]))
+    ])),
+    withPreloading(PreloadAllModules)
   ],
 };
